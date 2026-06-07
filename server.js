@@ -4,7 +4,7 @@
  */
 const express = require('express');
 const path = require('path');
-const sqlite3 = require('sqlite3-optional').verbose();
+const sqlite3 = require('sqlite3-offline').verbose();
 const cors = require('cors');
 const multer = require('multer'); // استيراد مكتبة رفع الملفات المضافة
 const fs = require('fs');
