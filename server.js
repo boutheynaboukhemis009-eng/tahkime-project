@@ -305,7 +305,7 @@ app.get('/:page', (req, res) => {
 /**
  * 7. تشغيل السيرفر
  */
-const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
     console.log(`السيرفر يعمل الآن بنجاح على المنفذ: ${PORT}`);
 
