@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>منصة TAHKIME للتحكيم الرقمي</title>
+</head>
+<body>
+
+    <!-- 1. شريط الآية المتحرك -->
+    <div class="marquee-bar">
+        <marquee direction="right">
+            {إِنَّ اللَّهَ يَأْمُرُكُمْ أَنْ تُؤَدُّوا الْأَمَانَاتِ إِلَىٰ أَهْلِهَا وَإِذَا حَكَمْتُمْ بَيْنَ النَّاسِ أَنْ تَحْكُمُوا بِالْعَدْلِ}
+        </marquee>
+    </div>
+
+    <!-- 2. شريط التنقل (Navbar) -->
+    <nav class="navbar">
+        <!-- شعار المنصة واسمها -->
+        <div class="brand-container">
+            <img src="logo.jpg" class="logo-img" alt="Logo">
+            <div class="brand-text-container">
+                <span class="logo-text-ar">تحكيم</span>
+                <span class="logo-text-en">TAHKIME</span>
+            </div>
+        </div>
+
+        <!-- قائمة الروابط -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">الرئيسية</a></li>
+            <li><a href="experts.html">الخبراء</a></li>
+            <li><a href="service.html">الخدمات</a></li>
+            <li><a href="partner.html">الشركاء</a></li>
+            <li><a href="about_us.html">حولنا</a></li>
+             <li><a href="contact.html">تواصل معنا</a></li>
+
+        </ul>
+
+        <!-- أزرار الدخول -->
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-nav btn-login">دخول</a>
+            <a href="register.html" class="btn-nav btn-register">إنشاء حساب</a>
+        </div>
+    </nav>
+
+    <!-- 3. المحتوى الرئيسي -->
+    <main>
+    <!-- قسم البطل (Hero Section) -->
+    <section class="hero">
+        <h1>العدالة البديلة الرقمية خيارك الأمثل</h1>
+        <p class="hero-tagline">تعاقد بثقة، حل نزاعاتك بسرية وأمان، وحافظ على علاقاتك بكل ود.</p>
+        <p class="hero-description">
+            منصة تحكيم تقدم خدمات قانونية بكل احترافية في بيئة رقمية متكاملة لنكون منكم أقرب.
+        </p>
+
+<button id="applyNowBtn" class="service-request-btn" data-service-name="التحكيم القضائي" data-service-type="arbitration">
+    <span>طلب الخدمة الآن</span>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+</button>
+    </section>
+
+    <!-- قسم لماذا تختارنا (Why Us) -->
+    <section class="why-us">
+        <h2>لماذا تختارنا؟</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>سرية تامة</h3>
+                <p>نضمن لك سرية المعلومات والبيانات في كافة مراحل النزاع.</p>
+            </div>
+            <div class="feature-item">
+                <h3>دقة واحترافية</h3>
+                <p>إدارة قانونية متخصصة وفقاً لأعلى معايير الخبرة والنزاهة.</p>
+            </div>
+            <div class="feature-item">
+                <h3>حلول رقمية</h3>
+                <p>إجراءات إلكترونية سريعة توفر عليك الوقت والجهد.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- 4. التذييل (Footer) -->
+    <footer style="text-align: center; padding: 20px; background: #0f172a; color: white; border-top: 1px solid #c5a059; margin-top: 40px;">
+    <p>جميع الحقوق محفوظة لمنصة تحكيم &copy; 2026</p>
+    <div>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">سياسة الخصوصية</a>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">شروط الاستخدام</a>
+          <a href="#" style="color: #c5a059; margin: 0 10px;">روابط مهمة</a>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">تابعنا</a>
+    </div>
+</footer>
+    هذا زر الاستشارة السريعة 
+    <a href="contact.html" class="floating-btn" style="position: fixed !important; bottom: 30px !important; left: 30px !important; z-index: 9999 !important; background-color: #d4af37 !important; color: black !important; padding: 15px 25px !important; border-radius: 50px !important; text-decoration: none !important; font-weight: bold !important;">استشارة فورية</a>
+<script src="js/script.js?v=1.1"></script>
+</body>
+</html>

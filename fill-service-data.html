@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تقديم طلب رسمي - بوابة الخدمات</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* تحسينات بصرية فورية لتعزيز الجدية والاحترافية */
+        .order-container { max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-family: sans-serif; }
+        .section-title { font-size: 1.2rem; color: #1a202c; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; margin-top: 25px; margin-bottom: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #4a5568; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; background: #f7fafc; }
+        .file-zone { border: 2px dashed #cbd5e0; padding: 20px; text-align: center; background: #f7fafc; border-radius: 6px; cursor: pointer; }
+        .payment-box { background: #ebf8ff; border: 1px solid #bee3f8; padding: 20px; border-radius: 6px; margin-top: 20px; }
+        .submit-btn { width: 100%; background: #2b6cb0; color: white; padding: 14px; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: background 0.2s; }
+        .submit-btn:hover { background: #2c5282; }
+    </style>
+</head>
+<body>
+
+<div class="order-container">
+    <h2 style="color: #2d3748; text-align: center; margin-bottom: 30px;">طلب تعاقد رسمي: <span id="serviceNameDisplay" style="color: #2b6cb0;"></span></h2>
+    
+    <form id="secureServiceOrderForm" enctype="multipart/form-data">
+        <input type="hidden" id="serviceTypeInput">
+
+        <!-- القسم الأول: البيانات القانونية/الرسمية -->
+        <div class="section-title">اولاً: بيانات مقدم الطلب والمعطيات</div>
+        <div class="form-group">
+            <label for="clientName">الاسم الكامل (المطابق للهوية/السجل التجاري):</label>
+            <input type="text" id="clientName" required placeholder="أدخل الاسم الثلاثي الفعلي">
+        </div>
+        <div class="form-group">
+            <label for="requestDetails">موضوع الطلب والمعطيات بالتفصيل:</label>
+            <textarea id="requestDetails" rows="6" required placeholder="يرجى كتابة كافة الأسانيد، الوقائع، أو الشروط المطلوبة بدقة قانونية..."></textarea>
+        </div>
+
+        <!-- القسم الثاني: المرفقات والملفات الثبوتية -->
+        <div class="section-title">ثانياً: الوثائق والمستندات الداعمة</div>
+        <div class="form-group">
+            <label>تحميل الملفات (PDF, Images, DOCX):</label>
+            <div class="file-zone" onclick="document.getElementById('serviceFiles').click()">
+                <p style="margin: 0; color: #718096;">اضغط هنا لاختيار الملفات أو اسحبها داخل المربع</p>
+                <input type="file" id="serviceFiles" multiple style="display: none;" onchange="updateFileLabel(this)">
+                <span id="fileCountDisplay" style="display:block; margin-top:10px; font-weight:bold; color:#2b6cb0;"></span>
+            </div>
+        </div>
+
+        <!-- القسم الثالث: الاعتماد المالي -->
+        <div class="section-title">ثالثاً: جدية الطلب والاعتماد المالي</div>
+        <div class="payment-box">
+            <p style="margin: 0 0 10px 0; font-weight: bold; color: #2c5282;">يتطلب تأكيد هذا الطلب دفع عربون جدية مسترد في حال رفض الطلب.</p>
+            <p style="font-size: 1.2rem; margin: 0 0 15px 0; color: #2d3748;">قيمة العربون المستحق: <strong style="color: #e53e3e;">250DAs</strong></p>
+            
+            <div class="form-group" style="margin-bottom: 0;">
+                <label for="cardNumber">رقم بطاقة الدفع (Mada / Visa / Mastercard):</label>
+                <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx" maxlength="19" required>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <button type="submit" class="submit-btn">تأكيد الدفع وإرسال الطلب رسمياً</button>
+        </div>
+    </form>
+</div>
+
+<script src="js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // حماية الصفحة وضمان الصلاحية بناءً على الرتب المعتمدة لديك
+        protectPage(['company', 'client', 'admin', 'expert']); 
+        
+        const serviceName = sessionStorage.getItem('selectedServiceName');
+        const serviceType = sessionStorage.getItem('selectedServiceType');
+        
+        if (serviceName) {
+            document.getElementById('serviceNameDisplay').innerText = serviceName;
+            document.getElementById('serviceTypeInput').value = serviceType;
+        }
+    });
+
+    function updateFileLabel(input) {
+        const display = document.getElementById('fileCountDisplay');
+        display.innerText = input.files.length > 0 ? `عدد الملفات المحددة: ${input.files.length}` : '';
+    }
+</script>
+</body>
+</html>

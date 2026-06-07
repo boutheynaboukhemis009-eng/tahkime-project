@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>إنشاء حساب جديد - منصة تحكيم</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="auth-page">
+        <h1 class="page-title">إنشاء حساب جديد</h1>
+        
+        <form id="registerForm" class="signup-form">
+            <div class="form-group">
+                <label>الاسم الكامل / اسم الشركة</label>
+                <input type="text" id="fullName" placeholder="أدخل الاسم هنا" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="phone" placeholder="0XXXXXXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="email" placeholder="example@mail.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>نوع الحساب</label>
+                <select id="userType" onchange="toggleFields()">
+                    <option value="client">فرد</option>
+                    <option value="company">مؤسسة / شركة</option>
+                    <option value="expert">خبير / محكم</option>
+                    <option value="admin">مدير</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="adminCodeGroup" style="display: none;">
+                <label>كود تفعيل المدير</label>
+                <input type="password" id="adminCode" placeholder="أدخل كود تفعيل الإدارة">
+            </div>
+
+            <div class="form-group">
+                <label id="idLabel">رقم التعريف الوطني</label>
+                <input type="text" id="idNumber" placeholder="أدخل الرقم المطلوب" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="password" placeholder="********" required>
+                </div>
+                <div class="form-group">
+                    <label>تأكيد كلمة المرور</label>
+                    <input type="password" id="confirmPassword" placeholder="********" required>
+                </div>
+            </div>
+
+            <div class="auth-switch" style="text-align: center; margin-top: 15px; font-size: 14px;">
+                <button type="submit" class="auth-btn">إنشاء الحساب</button>
+    <span>تملك حساباً بالفعل؟ </span>
+    <a href="login.html" style="color: #007bff; text-decoration: none; font-weight: bold;">تسجيل الدخول</a>
+</div>
+        </form>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

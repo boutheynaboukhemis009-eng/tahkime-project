@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>منصة TAHKIME للتحكيم الرقمي - طلب استشارة</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-container">
+            <img src="logo.jpg" class="logo-img" alt="Logo">
+            <div class="brand-text-container">
+                <span class="logo-text-ar">تحكيم</span>
+                <span class="logo-text-en">TAHKIME</span>
+            </div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="experts.html">الخبراء</a></li>
+            <li><a href="service.html">الخدمات</a></li>
+            <li><a href="partner.html">الشركاء</a></li>
+            <li><a href="about_us.html">حولنا</a></li>
+            <li><a href="contact.html" class="active">تواصل معنا</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-nav btn-login">دخول</a>
+            <a href="register.html" class="btn-nav btn-register">إنشاء حساب</a>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <h1 class="page-title">تواصل معنا لطلب استشارة</h1>
+        <p class="subtitle">يرجى ملء البيانات أدناه وسيتواصل معك الخبير المختار في أقرب وقت</p>
+    
+        <section class="contact-methods">
+            <div class="social-icons">
+                <a href="tel:0665544332" class="icon">📞 هاتف: 0665544332</a>
+                <a href="mailto:tahkime@gmail.com" class="icon">📧 بريد: tahkime@gmail.com</a>
+                <a href="https://wa.me/213665544332" class="icon" target="_blank">💬 واتساب: 0665544332</a>
+                <a href="https://facebook.com/tahkime" class="icon" target="_blank">📘 فيسبوك: tahkime</a>
+            </div>
+        </section>
+
+        <form id="contactForm" onsubmit="submitContactMessage(event)" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>الاسم واللقب</label>
+                    <input type="text" id="contactName" placeholder="أدخل اسمك الكامل" required>
+                </div>
+                <div class="form-group">
+                    <label>رقم الهاتف</label>
+                    <input type="tel" id="contactPhone" placeholder="0XXXXXXXXX" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>البريد الإلكتروني</label>
+                <input type="email" id="contactEmail" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>نوع الاستشارة</label>
+                <select id="contactType">
+                    <option>تحكيم تجاري</option>
+                    <option>قانون الأسرة</option>
+                    <option>قانون الصفقات</option>
+                    <option>قانون الاستثمار</option>
+                    <option>قانون عقاري</option>
+                    <option>قانون جنائي</option>
+                </select>
+            </div>
+        
+            <div class="form-group">
+                <label>تفاصيل الرسالة</label>
+                <textarea id="contactMessage" rows="5" placeholder="اكتب تفاصيل استشارتك هنا..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">إرسال الطلب للإدارة</button>
+        </form>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; background: #0f172a; color: white; border-top: 1px solid #c5a059; margin-top: 40px;">
+        <p>جميع الحقوق محفوظة لمنصة تحكيم &copy; 2026</p>
+        <div>
+            <a href="#" style="color: #c5a059; margin: 0 10px;">سياسة الخصوصية</a>
+            <a href="#" style="color: #c5a059; margin: 0 10px;">شروط الاستخدام</a>
+            <a href="#" style="color: #c5a059; margin: 0 10px;">روابط مهمة</a>
+            <a href="#" style="color: #c5a059; margin: 0 10px;">تابعنا</a>
+        </div>
+    </footer>
+
+    <a href="contact.html" class="floating-btn" style="position: fixed !important; bottom: 30px !important; left: 30px !important; z-index: 9999 !important; background-color: #d4af37 !important; color: black !important; padding: 15px 25px !important; border-radius: 50px !important; text-decoration: none !important; font-weight: bold !important;">استشارة فورية</a>
+
+    <script src="js/script.js?v=1.1"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة تحكم العميل</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+    
+    /* تنسيق جدول العميل الاحترافي بوضوح عالٍ */
+    .client-orders-section {
+        margin-top: 40px;
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #ffffff !important;
+    }
+    .orders-table th, .orders-table td {
+        padding: 14px 16px;
+        border: 1px solid #cbd5e0 !important;
+        text-align: right;
+        font-size: 15px;
+    }
+    /* فرض ألوان داكنة جداً للنصوص لضمان ظهورها الكامل */
+    .orders-table th {
+        background-color: #edf2f7 !important;
+        color: #1a202c !important;
+        font-weight: bold !important;
+    }
+    .orders-table td {
+        color: #2d3748 !important; /* لون رمادي داكن مائل للسواد */
+        font-weight: 500;
+    }
+    .orders-table tr:hover {
+        background-color: #f7fafc !important;
+    }
+
+    </style>
+</head>
+<body>
+    <main class="dashboard-page" style="padding: 40px;">
+        <h1>لوحة التحكم الخاصة بك</h1>
+        <h1>مرحباً بك، <span id="userName">...</span></h1>
+        <p>صلاحياتك: <span id="userRole">...</span></p>
+        
+        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0;">
+            <div class="card" style="border: 1px solid #c5a059; padding: 20px;">الخدمات النشطة: <span id="activeServices">0</span></div>
+            <div class="card" style="border: 1px solid #c5a059; padding: 20px;">الفواتير المعلقة: <span id="pendingInvoices">0</span></div>
+            <div class="card" style="border: 1px solid #c5a059; padding: 20px;">الرصيد: <span id="balance">0</span> دج</div>
+        </div>
+
+        <section class="actions" style="margin-bottom: 30px;">
+            <a href="service.html" class="btn-request-service" style="padding: 10px 20px; background-color: #2b6cb0; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-left: 10px;">طلب خدمة جديدة</a>
+            <button id="logoutBtn" class="btn-logout">تسجيل الخروج</button>
+        </section>
+
+        <section class="client-orders-section">
+            <h2 style="color: #2d3748; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">📦 ملف قضاياك وطلباتك المرفوعة</h2>
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>رقم الطلب</th>
+                        <th>نوع الخدمة المطلوبة</th>
+                        <th>مختصر وقائع الطلب</th>
+                        <th>العربون المدفوع</th>
+                        <th>تاريخ الإرسال</th>
+                    </tr>
+                </thead>
+                <tbody id="clientOrdersTableBody">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #718096;">جاري سحب بيانات طلباتك الرسمية من النظام...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // الحماية لصفحة العميل: يسمح فقط للمدير والعميل والشركات
+            protectPage(['admin', 'client', 'company']); 
+            
+            // استدعاء الدالة لجلب وعرض طلبات هذا العميل فور فتح الصفحة
+            if (typeof loadClientOrders === 'function') {
+                loadClientOrders();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - منصة التحكيم</title>
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+     <nav class="navbar">
+        <!-- شعار المنصة واسمها -->
+        <div class="brand-container">
+            <img src="logo.jpg" class="logo-img" alt="Logo">
+            <div class="brand-text-container">
+                <span class="logo-text-ar">تحكيم</span>
+                <span class="logo-text-en">TAHKIME</span>
+            </div>
+        </div>
+
+        <!-- قائمة الروابط -->
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">الرئيسية</a></li>
+            <li><a href="experts.html">الخبراء</a></li>
+            <li><a href="service.html">الخدمات</a></li>
+            <li><a href="partner.html">الشركاء</a></li>
+            <li><a href="about_us.html">حولنا</a></li>
+             <li><a href="contact.html">تواصل معنا</a></li>
+
+        </ul>
+
+        <!-- أزرار الدخول -->
+        <div class="auth-buttons">
+            <a href="login.html" class="btn-nav btn-login">دخول</a>
+            <a href="register.html" class="btn-nav btn-register">إنشاء حساب</a>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            ArbitrationX
+        </div>
+
+        <div class="menu">
+
+            <a href="#" class="active">🏠 الرئيسية</a>
+            <a href="#">⚖️ القضايا</a>
+            <a href="#">📅 الجلسات</a>
+            <a href="#">👨‍⚖️ المحكمون</a>
+            <a href="#">📄 العقود</a>
+            <a href="#">📊 التقارير</a>
+            <a href="#">💬 الرسائل</a>
+            <a href="#">🔔 الإشعارات</a>
+            <a href="#">⚙️ الإعدادات</a>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن قضية أو مستخدم...">
+            </div>
+
+            <div class="top-actions">
+
+                <div class="notification">🔔</div>
+
+                <div class="profile">
+
+                    <div class="avatar"></div>
+
+                    <div>
+                        <h4>مدير المنصة</h4>
+                        <small>Administrator</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>القضايا النشطة</h3>
+                <div class="number">24</div>
+            </div>
+
+            <div class="card">
+                <h3>الجلسات القادمة</h3>
+                <div class="number">08</div>
+            </div>
+
+            <div class="card">
+                <h3>القضايا المكتملة</h3>
+                <div class="number">51</div>
+            </div>
+
+            <div class="card">
+                <h3>نسبة النجاح</h3>
+                <div class="number">93%</div>
+            </div>
+
+        </div>
+
+        <!-- CONTENT -->
+
+        <div class="content-grid">
+
+            <!-- TABLE -->
+
+            <div class="table-box">
+
+                <h2>القضايا الحديثة</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>رقم القضية</th>
+                            <th>الأطراف</th>
+                            <th>النوع</th>
+                            <th>الحالة</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>#2026-11</td>
+                            <td>شركة ألفا / بيتا</td>
+                            <td>تجاري</td>
+
+                            <td>
+                                <span class="status processing">
+                                    قيد المعالجة
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#2026-12</td>
+                            <td>شركة النور / المدار</td>
+                            <td>استثماري</td>
+
+                            <td>
+                                <span class="status completed">
+                                    مكتملة
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#2026-13</td>
+                            <td>شركة التقنية / أفق</td>
+                            <td>عقود</td>
+
+                            <td>
+                                <span class="status urgent">
+                                    عاجلة
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- WIDGETS -->
+
+            <div class="widgets">
+
+                <div class="widget">
+
+                    <h2>الجلسات القادمة</h2>
+
+                    <div class="session">
+
+                        <strong>نزاع تجاري</strong>
+
+                        <p>25 مايو - 14:00</p>
+
+                        <button class="join-btn">
+                            دخول الجلسة
+                        </button>
+
+                    </div>
+
+                    <div class="session">
+
+                        <strong>تحكيم عقود</strong>
+
+                        <p>27 مايو - 10:30</p>
+
+                        <button class="join-btn">
+                            دخول الجلسة
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="widget">
+
+                    <h2>الإشعارات</h2>
+
+                    <div class="session">
+                        تم رفع مستند جديد للقضية #2026-11
+                    </div>
+
+                    <div class="session">
+                        تم تحديث حالة الجلسة القادمة
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <footer style="text-align: center; padding: 20px; background: #0f172a; color: white; border-top: 1px solid #c5a059; margin-top: 40px;">
+    <p>جميع الحقوق محفوظة لمنصة تحكيم &copy; 2026</p>
+    <div>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">سياسة الخصوصية</a>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">شروط الاستخدام</a>
+          <a href="#" style="color: #c5a059; margin: 0 10px;">روابط مهمة</a>
+        <a href="#" style="color: #c5a059; margin: 0 10px;">تابعنا</a>
+    </div>
+</footer>
+
+</body>
+
+</html>

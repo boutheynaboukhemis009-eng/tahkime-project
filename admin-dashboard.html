@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة تحكم المدير</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      
+    /* تنسيق جدول المدير لظهور النصوص المخفية */
+    .orders-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        background-color: #ffffff !important;
+    }
+    .orders-table th, .orders-table td {
+        padding: 14px 16px;
+        border: 1px solid #cbd5e0 !important;
+        text-align: right;
+        font-size: 14px;
+    }
+    /* تلوين نصوص العناوين بالأسود الداكن */
+    .orders-table th {
+        background-color: #edf2f7 !important;
+        color: #1a202c !important;
+        font-weight: bold !important;
+    }
+    /* تلوين محتوى الجدول بالأسود الواضح */
+    .orders-table td {
+        color: #2d3748 !important;
+    }
+    .orders-table tr:hover {
+        background-color: #f7fafc !important;
+    }
+</style>
+   
+</head>
+
+<body class="dashboard-page">
+
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar">
+            <div class="logo">لوحة المدير</div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showSection('stats')">الإحصائيات العامة</a></li>
+                    <li><a href="#" onclick="showSection('users')">إدارة المستخدمين</a></li>
+                    <li><a href="#" onclick="showSection('service-orders-section')">📦 طلبات الخدمات والعربين</a></li>
+                    <li><a href="#" onclick="showSection('requests')">طلبات الخبراء</a></li>
+                    
+                    <div class="admin-actions" style="margin: 20px 0; text-align: center;">
+                        <a href="add-expert.html" class="btn-add-expert" style="padding: 10px 20px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+                            ➕ إضافة خبير جديد
+                        </a>
+                    </div>
+                    
+                    <li><a href="#" id="logoutBtn">تسجيل الخروج</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1>لوحة تحكم المدير العام</h1>
+                <p>مرحباً بك، <span id="userName">... </span> | صلاحياتك: <span id="userRole">...</span></p>
+            </header>
+            
+            <section id="stats" class="content-section">
+                <h2>الإحصائيات</h2>
+                <div class="card">إجمالي المستخدمين: <span id="userCount">0</span></div>
+            </section>
+            
+            <section id="users" class="content-section" style="display:none;">
+                <h2>قائمة المستخدمين</h2>
+                <table id="usersTable" border="1" style="width:100%; border-collapse: collapse;">
+                    <thead>
+                        <tr><th>الاسم</th><th>البريد</th><th>الدور</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="service-orders-section" class="content-section" style="display:none;">
+                <h2>📦 طلبات قضايا التحكيم والخدمات المرفوعة</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>رقم الطلب</th>
+                            <th>مقدم الطلب</th>
+                            <th>نوع الخدمة</th>
+                            <th>تفاصيل القضية والوقائع</th>
+                            <th>المستندات الثبوتية</th>
+                            <th>الرسوم/العربون</th>
+                            <th>الحالة الإدارية</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminOrdersTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: #718096;">جاري تحميل طلبات التعاقد الرسمية...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="requests" class="content-section" style="display:none;">
+    <h2>⏳ طلبات الانضمام المعلقة لهيئة محكمي المنصة</h2>
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>اسم الخبير</th>
+                <th>البريد الإلكتروني</th>
+                <th>التخصص المطلوب</th>
+                <th>رقم الاعتماد</th>
+                <th>السيرة والخبرة</th>
+                <th>الإجراء الإداري</th>
+            </tr>
+        </thead>
+        <tbody id="pendingExpertsTableBody">
+            <tr>
+                <td colspan="6" style="text-align: center; color: #718096;">جاري التحقق وسحب طلبات الانضمام...</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // تفعيل حماية صفحة المدير
+            protectPage(['admin']);
+            // جلب الإحصائيات العامة فور تحميل الصفحة
+            fetchAdminStats();
+            // استدعاء الدالة المضافة لعرض الطلبات الجديدة داخل جدول الأدمن
+            if (typeof loadAdminOrders === 'function') {
+                loadAdminOrders();
+            }
+        });
+    </script>
+</body>
+</html>
