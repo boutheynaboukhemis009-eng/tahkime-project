@@ -5,7 +5,6 @@
     <title>لوحة تحكم المدير</title>
     <link rel="stylesheet" href="style.css">
     <style>
-      
     /* تنسيق جدول المدير لظهور النصوص المخفية */
     .orders-table {
         width: 100%;
@@ -32,8 +31,7 @@
     .orders-table tr:hover {
         background-color: #f7fafc !important;
     }
-</style>
-   
+    </style>
 </head>
 
 <body class="dashboard-page">
@@ -104,25 +102,25 @@
             </section>
 
             <section id="requests" class="content-section" style="display:none;">
-    <h2>⏳ طلبات الانضمام المعلقة لهيئة محكمي المنصة</h2>
-    <table class="orders-table">
-        <thead>
-            <tr>
-                <th>اسم الخبير</th>
-                <th>البريد الإلكتروني</th>
-                <th>التخصص المطلوب</th>
-                <th>رقم الاعتماد</th>
-                <th>السيرة والخبرة</th>
-                <th>الإجراء الإداري</th>
-            </tr>
-        </thead>
-        <tbody id="pendingExpertsTableBody">
-            <tr>
-                <td colspan="6" style="text-align: center; color: #718096;">جاري التحقق وسحب طلبات الانضمام...</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+                <h2>⏳ طلبات الانضمام المعلقة لهيئة محكمي المنصة</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>اسم الخبير</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>التخصص المطلوب</th>
+                            <th>رقم الاعتماد</th>
+                            <th>السيرة والخبرة</th>
+                            <th>الإجراء الإداري</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pendingExpertsTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: #718096;">جاري التحقق وسحب طلبات الانضمام...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
         </main>
     </div>
 
@@ -130,9 +128,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // تفعيل حماية صفحة المدير
-            protectPage(['admin']);
+            if (typeof protectPage === 'function') {
+                protectPage(['admin']);
+            }
             // جلب الإحصائيات العامة فور تحميل الصفحة
-            fetchAdminStats();
+            if (typeof fetchAdminStats === 'function') {
+                fetchAdminStats();
+            }
             // استدعاء الدالة المضافة لعرض الطلبات الجديدة داخل جدول الأدمن
             if (typeof loadAdminOrders === 'function') {
                 loadAdminOrders();
