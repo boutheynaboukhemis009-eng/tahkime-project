@@ -2,8 +2,9 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تقديم طلب رسمي - بوابة الخدمات</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         /* تحسينات بصرية فورية لتعزيز الجدية والاحترافية */
         .order-container { max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-family: sans-serif; }
@@ -25,7 +26,6 @@
     <form id="secureServiceOrderForm" enctype="multipart/form-data">
         <input type="hidden" id="serviceTypeInput">
 
-        <!-- القسم الأول: البيانات القانونية/الرسمية -->
         <div class="section-title">اولاً: بيانات مقدم الطلب والمعطيات</div>
         <div class="form-group">
             <label for="clientName">الاسم الكامل (المطابق للهوية/السجل التجاري):</label>
@@ -36,7 +36,6 @@
             <textarea id="requestDetails" rows="6" required placeholder="يرجى كتابة كافة الأسانيد، الوقائع، أو الشروط المطلوبة بدقة قانونية..."></textarea>
         </div>
 
-        <!-- القسم الثاني: المرفقات والملفات الثبوتية -->
         <div class="section-title">ثانياً: الوثائق والمستندات الداعمة</div>
         <div class="form-group">
             <label>تحميل الملفات (PDF, Images, DOCX):</label>
@@ -47,11 +46,10 @@
             </div>
         </div>
 
-        <!-- القسم الثالث: الاعتماد المالي -->
         <div class="section-title">ثالثاً: جدية الطلب والاعتماد المالي</div>
         <div class="payment-box">
             <p style="margin: 0 0 10px 0; font-weight: bold; color: #2c5282;">يتطلب تأكيد هذا الطلب دفع عربون جدية مسترد في حال رفض الطلب.</p>
-            <p style="font-size: 1.2rem; margin: 0 0 15px 0; color: #2d3748;">قيمة العربون المستحق: <strong style="color: #e53e3e;">250DAs</strong></p>
+            <p style="font-size: 1.2rem; margin: 0 0 15px 0; color: #2d3748;">قيمة العربون المستحق: <strong style="color: #e53e3e;">250 DAs</strong></p>
             
             <div class="form-group" style="margin-bottom: 0;">
                 <label for="cardNumber">رقم بطاقة الدفع (Mada / Visa / Mastercard):</label>
@@ -65,25 +63,11 @@
     </form>
 </div>
 
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // حماية الصفحة وضمان الصلاحية بناءً على الرتب المعتمدة لديك
         protectPage(['company', 'client', 'admin', 'expert']); 
         
         const serviceName = sessionStorage.getItem('selectedServiceName');
-        const serviceType = sessionStorage.getItem('selectedServiceType');
-        
-        if (serviceName) {
-            document.getElementById('serviceNameDisplay').innerText = serviceName;
-            document.getElementById('serviceTypeInput').value = serviceType;
-        }
-    });
-
-    function updateFileLabel(input) {
-        const display = document.getElementById('fileCountDisplay');
-        display.innerText = input.files.length > 0 ? `عدد الملفات المحددة: ${input.files.length}` : '';
-    }
-</script>
-</body>
-</html>
+        const serviceType = sessionStorage.getItem('selected
