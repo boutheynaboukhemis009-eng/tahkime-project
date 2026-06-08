@@ -16,7 +16,7 @@
             </div>
         </div>
         <ul class="nav-links">
-            <li><a href="/">الرئيسية</a></li>
+            <li><a href="index.html">الرئيسية</a></li>
             <li><a href="service.html">الخدمات</a></li>
             <li><a href="experts.html">الخبراء</a></li>
             <li><a href="partner.html">الشركاء</a></li>
@@ -29,7 +29,7 @@
         <h1 style="text-align: center; color: #2563eb; margin: 40px 0;">قائمة الخبراء والمحكمين</h1>
 
         <div id="experts-container" class="experts-grid">
-            </div>
+        </div>
     </main>
 
     <a href="contact.html" class="floating-btn">استشارة فورية</a>
@@ -46,5 +46,13 @@
 
     <script src="script.js"></script>
     
+    <script>
+        // التأكد من استدعاء دالة جلب الخبراء عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof loadExperts === 'function') {
+                loadExperts();
+            }
+        });
+    </script>
 </body>
 </html>
