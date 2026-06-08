@@ -5,8 +5,6 @@
     <title>لوحة تحكم العميل</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        
-    
     /* تنسيق جدول العميل الاحترافي بوضوح عالٍ */
     .client-orders-section {
         margin-top: 40px;
@@ -40,7 +38,6 @@
     .orders-table tr:hover {
         background-color: #f7fafc !important;
     }
-
     </style>
 </head>
 <body>
@@ -86,7 +83,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // الحماية لصفحة العميل: يسمح فقط للمدير والعميل والشركات
-            protectPage(['admin', 'client', 'company']); 
+            if (typeof protectPage === 'function') {
+                protectPage(['admin', 'client', 'company']); 
+            }
             
             // استدعاء الدالة لجلب وعرض طلبات هذا العميل فور فتح الصفحة
             if (typeof loadClientOrders === 'function') {
