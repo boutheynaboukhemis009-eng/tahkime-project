@@ -36,13 +36,16 @@
                 <p>قائمة الطلبات ستظهر هنا...</p>
             </section>
         </main>
-
     </div>
 
     <script src="script.js"></script>
     <script>
-        // تأكد من تشغيل الحماية
-        protectPage(['expert', 'admin']);
+        document.addEventListener('DOMContentLoaded', () => {
+            // تأكد من تشغيل الحماية
+            if (typeof protectPage === 'function') {
+                protectPage(['expert', 'admin']);
+            }
+        });
     </script>
 </body>
 </html>
